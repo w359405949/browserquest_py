@@ -1,0 +1,19 @@
+message Checkpoint
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 w = 4;
+    optional int32 h = 5;
+    optional int32 s = 6;
+}
+
+message WorldMap
+{
+    optional int32 id = 1;
+    optional string path = 2;
+    optional int32 width = 3;
+    optional int32 height = 4;
+    optional int32 zone_width = 5;
+    optional int32 zone_height = 6;
+}

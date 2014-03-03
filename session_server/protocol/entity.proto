@@ -1,0 +1,150 @@
+// base models
+
+enum Entities
+{
+    WARRIOR = 1;
+
+    // Mobs
+    RAT = 2;
+    SKELETON = 3;
+    GOBLIN = 4;
+    OGRE = 5;
+    SPECTRE = 6;
+    CRAB = 7;
+    BAT = 8;
+    WIZARD = 9;
+    EYE = 10;
+    SNAKE = 11;
+    SKELETON2 = 12;
+    BOSS = 13;
+    DEATHKNIGHT = 14;
+
+    // Armors
+    FIREFOX = 20;
+    CLOTHARMOR = 21;
+    LEATHERARMOR = 22;
+    MAILARMOR = 23;
+    PLATEARMOR = 24;
+    REDARMOR = 25;
+    GOLDENARMOR = 26;
+
+    // Objects
+    FLASK = 35;
+    BURGER = 36;
+    CHEST = 37;
+    FIREPOTION = 38;
+    CAKE = 39;
+
+    // NPCs
+    GUARD = 40;
+    KING = 41;
+    OCTOCAT = 42;
+    VILLAGEGIRL = 43;
+    VILLAGER = 44;
+    PRIEST = 45;
+    SCIENTIST = 46;
+    AGENT = 47;
+    RICK = 48;
+    NYAN = 49;
+    SORCERER = 50;
+    BEACHNPC = 51;
+    FORESTNPC = 52;
+    DESERTNPC = 53;
+    LAVANPC = 54;
+    CODER = 55;
+    //Weapons
+    SWORD1 = 60;
+    SWORD2 = 61;
+    REDSWORD = 62;
+    GOLDENSWORD = 63;
+    MORNINGSTAR = 64;
+    AXE = 65;
+    BLUESWORD = 66;
+}
+
+enum Orientations
+{
+    UP = 1;
+    DOWN = 2;
+    LEFT = 3;
+    RIGHT = 4;
+}
+
+message Entity
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 is_dead = 4;
+    optional string group_id = 5;
+    optional int32 world_id = 6;
+}
+
+message Player
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional string name = 4;
+    optional int32 armor = 5;
+    optional int32 weapon = 6;
+    optional int32 hitpoints = 7;
+    optional int32 last_check_point = 8;
+    optional int32 world_id = 9;
+    optional string group_id = 10;
+    optional int32 kind = 11;
+    repeated string recently_left_groups = 12;
+    optional int32 target_id = 13;
+    repeated int32 hater_ids = 14;
+    optional int32 orientation = 15;
+}
+
+message Item
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional bool is_static = 4;
+    optional bool is_from_chest = 5;
+}
+
+message Chest
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional bool is_static = 4;
+    optional bool is_from_chest = 5;
+}
+
+message Character
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 orientation = 4;
+    repeated int32 attackers = 5;
+    optional int32 target = 6;
+}
+
+message Mob
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 orientation = 4;
+    optional int32 target = 6;
+    optional int32 spawning_x = 7;
+    optional int32 spawning_y = 8;
+    optional int32 armor = 9;
+    optional int32 weapon = 10;
+    optional int32 respoawn_timeout = 12;
+    optional int32 return_timeout = 13;
+    optional int32 is_dead = 14;
+    repeated string recently_left_groups = 15;
+    optional int32 area_id = 16;
+    optional int32 kind = 17;
+    optional string group_id = 18;
+    optional int32 hitpoints = 19;
+    optional int32 world_id = 20;
+}

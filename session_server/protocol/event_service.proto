@@ -1,0 +1,74 @@
+option py_generic_services = true;
+
+message Void
+{
+}
+
+message PlayerLoginedEvent
+{
+    optional int32 player_id = 1;
+}
+
+message EntityJoinWorldEvent
+{
+    optional int32 entity_id = 1;
+    optional int32 world_id = 2;
+}
+
+message PopulationUpdateEvent
+{
+    optional int32 world_id = 1;
+    optional int32 pre_population = 2;
+    optional int32 population = 3;
+}
+
+message EntityGroupChangedEvent
+{
+    optional int32 entity_id = 1;
+    optional string group_id = 2;
+    optional string pre_group_id = 3;
+}
+
+message EntityMoveEvent
+{
+    optional int32 entity_id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 pre_x = 4;
+    optional int32 pre_y = 5;
+}
+
+message AttackEvent
+{
+    optional int32 attack_id = 1;
+    optional int32 target_id = 2;
+}
+
+message DamageEvent
+{
+    optional int32 attack_id = 1;
+    optional int32 target_id = 2;
+    optional int32 damage = 3;
+    optional int32 attack_weapon = 4;
+    optional int32 target_armor = 5;
+    optional int32 pre_target_hitpoints = 6;
+    optional int32 target_hitpoints = 7;
+}
+
+message KillEvent
+{
+    optional int32 killer_id = 1;
+    optional int32 killed_id = 2;
+}
+
+service EventService
+{
+    rpc PlayerLogined(PlayerLoginedEvent) returns(Void);
+    rpc EntityJoinWorld(EntityJoinWorldEvent) returns(Void);
+    rpc PopulationUpdate(PopulationUpdateEvent) returns(Void);
+    rpc EntityGroupChanged(EntityGroupChangedEvent) returns(Void);
+    rpc EntityMove(EntityMoveEvent) returns(Void);
+    rpc Attack(AttackEvent) returns(Void);
+    rpc Damage(DamageEvent) returns(Void);
+    rpc Kill(KillEvent) returns(Void);
+}

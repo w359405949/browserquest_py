@@ -1,0 +1,31 @@
+import "entity.proto";
+
+option py_generic_services = true;
+
+
+message GetPlayerIDListRequest
+{
+}
+
+message IDList
+{
+    repeated int32 ids = 1;
+}
+
+message Void
+{
+}
+
+service EntityService
+{
+    rpc CreatePlayer(Player) returns(Player);
+    rpc CreateItem(Item) returns(Item);
+    rpc CreateChest(Chest) returns(Chest);
+    rpc CreateCharacter(Character) returns(Character);
+    rpc CreateMob(Mob) returns(Mob);
+    rpc GetPlayer(Player) returns(Player);
+    rpc GetMob(Mob) returns(Mob);
+    rpc GetPlayerIDList(GetPlayerIDListRequest) returns(IDList);
+    rpc UpdateEntity(Entity) returns(Void);
+    rpc GetEntity(Entity) returns(Entity);
+}

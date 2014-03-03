@@ -1,0 +1,111 @@
+import "entity.proto";
+import "world.proto";
+
+option py_generic_services = true;
+
+message IDList
+{
+    repeated int32 ids = 1;
+}
+
+message ChangedGroups
+{
+    optional bool has_changed_groups = 1;
+}
+
+message PlayerJoinRequest
+{
+    optional int32 player_id = 1;
+}
+
+message PlayerJoinResponse
+{
+    optional int32 player_id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 hitpoints = 4;
+}
+
+message MoveRequest
+{
+    optional int32 entity_id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+}
+
+message MoveResponse
+{
+}
+
+message ZoneRequest
+{
+    optional int32 entity_id = 1;
+}
+
+message ZoneResponse
+{
+}
+
+message TeleportRequest
+{
+    optional int32 entity_id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+}
+
+message TeleportResponse
+{
+}
+
+message CheckRequest
+{
+    optional int32 entity_id = 1;
+    optional int32 checkpoint = 2;
+}
+
+message CheckResponse
+{
+}
+
+message AttackRequest
+{
+    optional int32 attack_id = 1;
+    optional int32 target_id = 2;
+}
+
+message AttackResponse
+{
+    optional int32 attack_id = 1;
+    optional int32 target_id = 2;
+}
+
+message DamageRequest
+{
+    optional int32 attack_id = 1;
+    optional int32 target_id = 2;
+}
+
+message DamageResponse
+{
+    optional int32 attack_id = 1;
+    optional int32 target_id = 2;
+    optional int32 damage = 3;
+}
+
+service WorldService
+{
+    rpc PlayerJoin(PlayerJoinRequest) returns(PlayerJoinResponse);
+    rpc Move(MoveRequest) returns(MoveResponse);
+    rpc Zone(ZoneRequest) returns(ZoneResponse);
+    rpc Check(CheckRequest) returns(CheckResponse);
+    rpc Teleport(TeleportRequest) returns(TeleportResponse);
+    rpc Attack(AttackRequest) returns(AttackResponse);
+    rpc Damage(DamageRequest) returns(DamageResponse);
+
+    rpc AddMob(Mob) returns(Mob);
+    rpc GetAdjacentPlayerList(Player) returns(IDList);
+    rpc GetRelevantEntityList(Entity) returns(IDList);
+    rpc GetRecentlyLeftGroupPlayerList(Player) returns(IDList);
+    rpc GetWorldPlayerList(World) returns(IDList);
+
+}

@@ -1,0 +1,6 @@
+message Property
+{
+    optional string name = 1;
+    optional int32 hitpoints = 2;
+
+}

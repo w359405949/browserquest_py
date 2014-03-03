@@ -1,0 +1,12 @@
+package browserquest.ai;
+
+message Player
+{
+    optional int32 id = 1;
+    optional int32 aggro = 2;
+
+}
+
+message Mob
+{
+}

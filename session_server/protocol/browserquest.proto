@@ -1,0 +1,199 @@
+
+option py_generic_services = true;
+
+message HelloRequest
+{
+    optional string name = 1;
+    optional int32 armor = 2;
+    optional int32 weapon = 3;
+}
+
+message WelcomeRequest
+{
+    optional int32 player_id = 1;
+    optional string name = 2;
+    optional int32 x = 3;
+    optional int32 y = 4;
+    optional int32 hitpoints = 5;
+}
+
+message SpawnRequest
+{
+    optional int32 entity_id = 1;
+    optional int32 kind = 2;
+    optional int32 x = 3;
+    optional int32 y = 4;
+    optional string name = 5;
+    optional int32 orientation = 6;
+    optional int32 armor = 7;
+    optional int32 weapon = 8;
+}
+
+message DespawnRequest
+{
+    optional int32 entity_id = 1;
+}
+
+message MoveRequest
+{
+    optional int32 entity_x = 1;
+    optional int32 entity_y = 2;
+}
+
+message LootMoveRequest
+{
+    optional int32 x = 1;
+    optional int32 y = 2;
+    optional int32 item_id = 3;
+    optional int32 entity_id = 4;
+}
+
+message AggroRequest
+{
+    optional int32 mob_id = 1;
+}
+
+message AttackRequest
+{
+    optional int32 target_id = 1;
+}
+
+message HitRequest
+{
+    optional int32 mob_id = 1;
+}
+
+message HurtRequest
+{
+    optional int32 mob_id = 1;
+}
+
+message HealthRequest
+{
+    optional int32 hitpoints = 1;
+    optional bool is_regon = 2;
+}
+
+
+message ChatRequest
+{
+    optional int32 player_id = 1;
+    optional string message = 2;
+}
+
+message LootRequest
+{
+    optional int32 item_id = 1;
+}
+
+message EquipRequest
+{
+    optional int32 player_id      = 1;
+    optional int32 item_kind      = 2;
+}
+
+
+message DropRequest
+{
+    optional int32 mob_id         = 1;
+    optional int32 item_id        = 2;
+    optional int32 item_kind      = 3;
+    repeated int32 mob_hatlist    = 4;
+}
+
+message TeleportRequest
+{
+    optional int32 x = 1;
+    optional int32 y = 2;
+}
+
+message DamageRequest
+{
+    optional int32 entity_id = 1;
+    optional int32 damage = 2;
+}
+
+message PopulationRequest
+{
+    optional int32 world = 1;
+    optional int32 total = 2;
+}
+
+message KillRequest
+{
+    optional int32 mob_kind = 1;
+}
+
+message ListRequest
+{
+    repeated int32 entity_ids = 1;
+}
+
+message WhoRequest
+{
+    repeated int32 entity_ids = 1;
+}
+
+message ZoneRequest
+{
+}
+
+message DestroyRequest
+{
+    optional int32 entity_id = 1;
+}
+
+message HitPointsRequest
+{
+    optional int32 max_hitpoints = 1;
+}
+
+message BlinkRequest
+{
+    optional int32 item_id = 1;
+}
+
+message OpenRequest
+{
+    optional int32 chest_id = 1;
+}
+
+message CheckRequest
+{
+    optional int32 checkpoint = 1;
+}
+
+message Void
+{
+}
+
+service BrowserQuest
+{
+    rpc hello(HelloRequest) returns (Void);
+    rpc welcome(WelcomeRequest) returns (Void);
+    rpc spawn(SpawnRequest) returns (Void);
+    rpc despawn(DespawnRequest) returns (Void);
+    rpc move(MoveRequest) returns (Void);
+    rpc lootmove(LootMoveRequest) returns (Void);
+    rpc aggro(AggroRequest) returns (Void);
+    rpc attack(AttackRequest) returns (Void);
+    rpc hit(HitRequest) returns (Void);
+    rpc hurt(HurtRequest) returns (Void);
+    rpc health(HealthRequest) returns (Void);
+    rpc chat(ChatRequest) returns (Void);
+    rpc loot(LootRequest) returns (Void);
+    rpc equip(EquipRequest) returns (Void);
+    rpc drop(DropRequest) returns (Void);
+    rpc teleport(TeleportRequest) returns (Void);
+    rpc damage(DamageRequest) returns (Void);
+    rpc population(PopulationRequest) returns (Void);
+    rpc kill(KillRequest) returns (Void);
+    rpc list(ListRequest) returns (Void);
+    rpc who(WhoRequest) returns (Void);
+    rpc zone(ZoneRequest) returns (Void);
+    rpc destroy(DestroyRequest) returns (Void);
+    rpc hitpoints(HitPointsRequest) returns (Void);
+    rpc blink(BlinkRequest) returns (Void);
+    rpc open(OpenRequest) returns (Void);
+    rpc check(CheckRequest) returns (Void);
+}

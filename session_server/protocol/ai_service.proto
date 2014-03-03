@@ -1,0 +1,5 @@
+option py_generic_services = true;
+
+service AIService
+{
+}

@@ -1,0 +1,47 @@
+message ChestArea
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 width = 4;
+    optional int32 height = 5;
+    optional int32 chest_x = 6;
+    optional int32 chest_y = 7;
+    optional int32 world_id = 8;
+    optional int32 tx = 9;
+    optional int32 ty = 10;
+    repeated int32 i = 11;
+}
+
+message MobArea
+{
+    optional int32 id = 1;
+    optional int32 x = 2;
+    optional int32 y = 3;
+    optional int32 width = 4;
+    optional int32 height = 5;
+    optional int32 nb = 6;
+    optional int32 kind = 7;
+    optional int32 world_id = 8;
+    optional string type = 9;
+    repeated int32 entity_ids = 12;
+}
+
+message Group
+{
+    optional string id = 1;
+    repeated int32 entity_ids = 2;
+    repeated int32 player_ids = 3;
+    optional int32 world_id = 4;
+    optional string index = 5;
+}
+
+message World
+{
+    optional int32 id = 1;
+    repeated int32 player_ids = 2;
+    repeated int32 mob_ids = 3;
+    repeated int32 entity_ids = 4;
+    repeated int32 mob_area_ids = 6;
+    repeated int32 chest_area_ids = 7;
+}
